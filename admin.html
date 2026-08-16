@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | Event Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Event<span>Manager</span>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="admin.html">
+                Admin
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <section class="page-header">
+
+        <h1>
+            Admin Dashboard
+        </h1>
+
+        <p>
+            Manage registered event participants.
+        </p>
+
+
+        <button
+            onclick="adminLogout()"
+            class="btn secondary"
+        >
+            Logout
+        </button>
+
+    </section>
+
+
+
+    <section class="admin-section">
+
+
+        <div class="admin-stats">
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        4
+                    </h3>
+
+                    <p>
+                        Total Events
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h3 id="totalParticipants">
+                        0
+                    </h3>
+
+                    <p>
+                        Total Participants
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3 id="activeRegistrations">
+                        0
+                    </h3>
+
+                    <p>
+                        Active Registrations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="participant-container">
+
+
+            <div class="participant-header">
+
+                <h2>
+                    Registered Participants
+                </h2>
+
+
+                <input
+                    type="text"
+                    id="searchParticipant"
+                    placeholder="Search participant..."
+                >
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>S.No</th>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>College</th>
+
+                            <th>Department</th>
+
+                            <th>Event</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="participantTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p>
+            © 2026 Event Participant Manager
+        </p>
+
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+
+        const isLoggedIn =
+            localStorage.getItem("adminLoggedIn");
+
+
+        if (isLoggedIn !== "true") {
+
+            alert(
+                "Please login as admin first!"
+            );
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+
+        function adminLogout() {
+
+            localStorage.removeItem(
+                "adminLoggedIn"
+            );
+
+            alert(
+                "Logged out successfully!"
+            );
+
+            window.location.href =
+                "admin-login.html";
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
